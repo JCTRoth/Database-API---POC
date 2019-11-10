@@ -14,7 +14,7 @@ xhttp.onreadystatechange = function() {
         console.log(response);
     }
 };
-xhttp.open("GET", "http://localhost:8000/database", true);
+xhttp.open("GET", "http://127.0.0.1:8000/database", true);
 
 xhttp.send();
 
