@@ -26,8 +26,11 @@ class dbConnection:
 
     # Run SQL Code
     def run_sql(self, sqlCode):
-        self._myCursor.execute(sqlCode)
-        return self._myCursor.fetchall()
+        try:
+            self._myCursor.execute(sqlCode)
+            return list(self._myCursor)
+        except:
+            return "Error"
 
     # Undo Last SQL Code Run
     def undo_sql(self):
@@ -36,7 +39,7 @@ class dbConnection:
 
     # Return Warnings
     def returnWarnings(self):
-        return str(self._myCursor.fetchwarnings());  # Casted as String
+        return str(self._myCursor.fetchwarnings())  # Casted as String
 
     # Disconnect and clear connection pool
     def closeConnection(self):

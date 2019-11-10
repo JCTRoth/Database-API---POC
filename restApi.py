@@ -26,8 +26,14 @@ class DataBase(object):
             req_dict = json.loads(req_stream.decode('utf-8'))
 
         if req_dict["sql"] != None:  # If request is formated correctly
-            returnValue = internal_dbConnection.run_sql(req_dict["sql"])  # Run SQL Command
-            resp.body = json.dumps(returnValue)
+            return_value = internal_dbConnection.run_sql(req_dict["sql"])  # Run SQL Command
+            if return_value == "Error":
+                resp.body = '{ "message" : "SQL Error" }'
+                return #End Method
+            if return_value != None:
+                resp.body = json.dumps(return_value)
+            else:
+                resp.body = '{ "message" : "No Return" }'
 
     def on_get(self, req, resp):
         resp.body = json.dumps("Warnings: " + internal_dbConnection.returnWarnings())
