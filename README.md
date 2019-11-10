@@ -1,2 +1,2 @@
-# Database-API---POC
+# Database-API-POC
 A Python MySQL Database REST API Connection
