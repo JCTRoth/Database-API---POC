@@ -56,3 +56,7 @@ With this Python Script you can Acess MySQL directly via a REST Interface.
 Since this is a POC, I have not implemented any security measures when accessing the SQL Server or protecting and monitoring a connection. 
 Normally you would write functions that would call SQL commands and process the data. This would allow the connection of a client program via REST interface.
 The implementation with program specific functions could look like this:
+
+<br>
+
+![Bank Interface](img/bank_connection.png) 
