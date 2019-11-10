@@ -1,7 +1,7 @@
 # Database-API-POC
 A Python MySQL Database REST API Connection - Proof Of Concept
 
-With this Python Script you can Acess MySQL directly via a REST Interface.
+With this Python Script you can access MySQL directly via a REST Interface.
 
 
 ![Direct Connection](img/direct_connection.png)
@@ -9,7 +9,7 @@ With this Python Script you can Acess MySQL directly via a REST Interface.
 <br>
 <br>
 
-<h3>Comprisson:</h3>
+<h3>Comparison:</h3>
 
 **Native MySQL Call**
 
@@ -38,21 +38,25 @@ With this Python Script you can Acess MySQL directly via a REST Interface.
 
 - Open TestApi.js
 - Copy the Command you want to
-- Open a Blank WebBrowser Tab
-- Past the Command and Press Enter
+- Open a blank WebBrowser Tab
+- Past the Command and press Enter
 
 <br>
 <br>
 
 <h3>Info</h3>
 
-- Falcon was used to define the interface
+- Falcon was used to define the Interface
 - Gunicorn was used to run the Server
 
 
 <br>
 <br>
 
-Since this is a POC, I have not implemented any security measures when accessing the SQL Server or protecting and monitoring a connection. 
-Normally you would write functions that would call SQL commands and process the data. This would allow the connection of a client program via REST interface.
+Since this is a proof of concept, I have not implemented any security measures when accessing the SQL-Server nor protecting and monitoring a running session.
+Normally, you would write functions that would call SQL commands and process the data. This would allow a client program to be connected via the REST interface.
 The implementation with program specific functions could look like this:
+
+<br>
+
+![Bank Interface](img/bank_connection.png) 
