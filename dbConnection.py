@@ -11,21 +11,23 @@ class dbConnection:
     # Objects
     # Running on Obj. Init.
 
+    # Load JSON File String to Program
+    jsonConfig=config()
+    # JSON String to JSON Obj.
+    jsonConfig.read_config_file()
+
+    # Database Config
+    config_database = jsonConfig.config.get("database")
+
     # Set up Database Connection
     _dbConnection = mysql.connector.connect(
 
-        # Load Config form File to Program
-        jsonConfig=config()
-        # Extract Info from config file
-        jsonConfig.read_config_file()
-        print(jsonConfig.config)
-
         # SET SERVER CONFIG HERE #
-        host='localhost',
-        # port='3306',
-        user='root',
-        #  database='123-DB-XYZ',
-        password="WilliamSamitienneGrigahcine(French:1986)",
+        host=config_database.get("host"),
+        # port=config_database.get("port"),
+        user=config_database.get("user"),
+        #  database=config_database.get("dbName"),
+        password=config_database.get("password"),
     )
 
     _myCursor = _dbConnection.cursor()  # Init. Cursor used for exec.
@@ -62,7 +64,7 @@ class dbConnection:
         # Reconnect == True, one try, 0 delay
         self._dbConnection.ping(True, 1, 0)
         if self._dbConnection.can_consume_results == True:
-            dbConnection._myCursor = self.dbConnection.cursor()  # Set Cursor
+            dbConnection._myCursor = self._myCursor.cursor()  # Set Cursor
             return "Connection Reestablished"
         else:
             return "Connection Failed " + str(self._dbConnection.connection_id)

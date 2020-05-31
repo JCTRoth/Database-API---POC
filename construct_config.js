@@ -11,6 +11,7 @@ config = {}
 config.database = {} // Creates Sub Obj.
 config.database.host = 'https://'
 config.database.port = ''
+config.database.dbName = ''
 config.database.user = ''
 config.database.password = ''
 
