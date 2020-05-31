@@ -1,5 +1,6 @@
 # Imports
 import mysql.connector
+from config import *
 
 
 class dbConnection:
@@ -12,6 +13,13 @@ class dbConnection:
 
     # Set up Database Connection
     _dbConnection = mysql.connector.connect(
+
+        # Load Config form File to Program
+        jsonConfig=config()
+        # Extract Info from config file
+        jsonConfig.read_config_file()
+        print(jsonConfig.config)
+
         # SET SERVER CONFIG HERE #
         host='localhost',
         # port='3306',
@@ -51,7 +59,8 @@ class dbConnection:
 
     # Reestablish Connection
     def reestablishConnection(self):
-        self._dbConnection.ping(True, 1, 0)  # Reconnect == True, one try, 0 delay
+        # Reconnect == True, one try, 0 delay
+        self._dbConnection.ping(True, 1, 0)
         if self._dbConnection.can_consume_results == True:
             dbConnection._myCursor = self.dbConnection.cursor()  # Set Cursor
             return "Connection Reestablished"
