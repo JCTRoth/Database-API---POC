@@ -28,10 +28,10 @@ With this Python Script you can access MySQL directly via a REST Interface.
 <h3>Configuration/Installation</h3>
 
 - Install MySQL/MariaDB
-- Add your DB credentials in **dbConnection.py**
+- Add your DB credentials and than generate a config file: ***construct_config.js***
 - Install Python3.x
-- sudo sh setup_py.sh
-- sh start_server.sh
+- ***sudo sh setup_py.sh***
+- ***sh start_server.sh***
 - Done
 
 <h3>Test Connection</h3>
